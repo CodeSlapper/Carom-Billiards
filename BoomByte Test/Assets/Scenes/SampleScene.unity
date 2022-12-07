@@ -261,7 +261,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76299173}
-  m_LocalRotation: {x: 0.23343568, y: -0.000000008365505, z: 0.0000000020082918, w: 0.97237223}
+  m_LocalRotation: {x: 0.23343568, y: 0.000000008365503, z: -0.0000000020082913, w: 0.97237223}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1700,6 +1700,7 @@ GameObject:
   - component: {fileID: 1867656783}
   - component: {fileID: 1867656784}
   - component: {fileID: 1867656785}
+  - component: {fileID: 1867656786}
   m_Layer: 0
   m_Name: CueBall
   m_TagString: Untagged
@@ -1836,6 +1837,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76db241b192c06942ac2c8aa80b4b9f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
+--- !u!114 &1867656786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867656777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d645985a2cde8547aae95637a657a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRef: {fileID: 1867656785}
 --- !u!1 &1910079177
 GameObject:
   m_ObjectHideFlags: 0
