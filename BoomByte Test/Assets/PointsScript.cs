@@ -8,7 +8,7 @@ public class PointsScript : MonoBehaviour
     List<GameObject> collisionHistory = new List<GameObject>();
     //getting a refernce of the boolean isMoving
     public CueDisable moveRef;
-    private int score;
+    public int score;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,6 +50,7 @@ public class PointsScript : MonoBehaviour
             }
         }
     }
+    //checking wheter the cue ball has colided with both balls while moving
     private bool checkForBalls(List<GameObject> pCollisionHistory)
     {
         bool redCheck = false;

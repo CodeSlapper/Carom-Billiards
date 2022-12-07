@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CueStrike : MonoBehaviour
 {
-    int strikeAttempts = 0;
+    public int strikeAttempts;
     //need the position of the cue ball and the camera to create the direction the velocity/force will be coming from
     public GameObject camRef;
     Rigidbody rg;
@@ -14,6 +14,7 @@ public class CueStrike : MonoBehaviour
     void Start()
     {
         rg = GetComponent<Rigidbody>();
+        strikeAttempts = 0;
     }
     void Update()
     {
@@ -26,20 +27,24 @@ public class CueStrike : MonoBehaviour
         }
         if(Input.GetKeyUp("v"))
         {
-            //creating the direction relative to the camera and ball
-            var forward = Camera.main.transform.forward;
-            var actualForward = Vector3.ProjectOnPlane(forward, Vector3.up).normalized;
-            var startPoint = this.transform.position;
-            var endpoint = startPoint + actualForward;
-
-            //timer by itself is too low of a value, a multiplier is used to increased the force applied
-            rg.AddForce((endpoint - startPoint) * (timer* forceMultiplier));
-            float seconds = Mathf.FloorToInt(timer % 60);
-           // Debug.Log("key was held for: " + seconds);
-            timer = 0f;
-            strikeAttempts++;
-            //Debug.Log("Attempts so far: " + strikeAttempts);
+            Strike(rg);
         }
        
+    }
+    private void Strike(Rigidbody pRB)
+    {
+        //creating the direction relative to the camera and ball
+        var forward = Camera.main.transform.forward;
+        var actualForward = Vector3.ProjectOnPlane(forward, Vector3.up).normalized;
+        var startPoint = this.transform.position;
+        var endpoint = startPoint + actualForward;
+
+        //timer by itself is too low of a value, a multiplier is used to increased the force applied
+        pRB.AddForce((endpoint - startPoint) * (timer * forceMultiplier));
+        float seconds = Mathf.FloorToInt(timer % 60);
+        // Debug.Log("key was held for: " + seconds);
+        timer = 0f;
+        strikeAttempts++;
+        //Debug.Log("Attempts so far: " + strikeAttempts);
     }
 }
