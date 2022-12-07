@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CueStrike : MonoBehaviour
 {
-    public int strikeAttempts;
     //need the position of the cue ball and the camera to create the direction the velocity/force will be coming from
     public GameObject camRef;
     Rigidbody rg;
@@ -14,7 +13,6 @@ public class CueStrike : MonoBehaviour
     void Start()
     {
         rg = GetComponent<Rigidbody>();
-        strikeAttempts = 0;
     }
     void Update()
     {
@@ -44,7 +42,7 @@ public class CueStrike : MonoBehaviour
         float seconds = Mathf.FloorToInt(timer % 60);
         // Debug.Log("key was held for: " + seconds);
         timer = 0f;
-        strikeAttempts++;
+        StaticVariables.totalAttempts++;
         //Debug.Log("Attempts so far: " + strikeAttempts);
     }
 }

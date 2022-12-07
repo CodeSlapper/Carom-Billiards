@@ -8,11 +8,10 @@ public class PointsScript : MonoBehaviour
     List<GameObject> collisionHistory = new List<GameObject>();
     //getting a refernce of the boolean isMoving
     public CueDisable moveRef;
-    public int score;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        score = 0;
     }
 
     
@@ -24,7 +23,7 @@ public class PointsScript : MonoBehaviour
             {
                 if (checkForBalls(collisionHistory))
                 {
-                    score++;
+                    StaticVariables.totalScore++;
                     Debug.Log("You scored!");
                     collisionHistory.Clear();
                 }
