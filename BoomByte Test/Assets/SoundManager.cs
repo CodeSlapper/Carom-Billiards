@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
+    [SerializeField] AudioSource mainMenuMusic;
     void Start()
     {
         if(!PlayerPrefs.HasKey("generalVolume"))
@@ -22,15 +23,18 @@ public class SoundManager : MonoBehaviour
     public void ChangeVolume()
     {
         AudioListener.volume = volumeSlider.value;
+        mainMenuMusic.volume = AudioListener.volume;
         SaveVolume();
     }
 
     private void LoadVolume()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("generalVolume");
+        mainMenuMusic.volume = volumeSlider.value;
     }
     private void SaveVolume()
     {
         PlayerPrefs.SetFloat("generalVolume", volumeSlider.value);
+
     }
 }
