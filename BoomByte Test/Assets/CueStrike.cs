@@ -10,6 +10,7 @@ public class CueStrike : MonoBehaviour
     Rigidbody rg;
     //making float public to be accessed by Lineset (visually increase line direction with power used)
     public float timer=0;
+    public int forceMultiplier = 300;
     void Start()
     {
         rg = GetComponent<Rigidbody>();
@@ -31,12 +32,13 @@ public class CueStrike : MonoBehaviour
             var startPoint = this.transform.position;
             var endpoint = startPoint + actualForward;
 
-            rg.AddForce((endpoint - startPoint) * (timer*100));
+            //timer by itself is too low of a value, a multiplier is used to increased the force applied
+            rg.AddForce((endpoint - startPoint) * (timer* forceMultiplier));
             float seconds = Mathf.FloorToInt(timer % 60);
-            Debug.Log("key was held for: " + seconds);
+           // Debug.Log("key was held for: " + seconds);
             timer = 0f;
             strikeAttempts++;
-            Debug.Log("Attempts so far: " + strikeAttempts);
+            //Debug.Log("Attempts so far: " + strikeAttempts);
         }
        
     }

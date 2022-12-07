@@ -23,7 +23,7 @@ public class LineSet : MonoBehaviour
         var forward = Camera.main.transform.forward;
         var actualForward = Vector3.ProjectOnPlane(forward, Vector3.up).normalized;
         var startPoint = _cueBallRef.transform.position;
-        var endpoint = startPoint + actualForward * (5+ cueStrikeScript.timer);
+        var endpoint = startPoint + actualForward * ((cueStrikeScript.forceMultiplier/100)+ cueStrikeScript.timer);
         _lineRenderer.SetPosition(0,startPoint);
         _lineRenderer.SetPosition(1, endpoint);
     }

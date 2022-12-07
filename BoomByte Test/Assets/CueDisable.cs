@@ -5,20 +5,28 @@ using UnityEngine;
 public class CueDisable : MonoBehaviour
 {
     Rigidbody rb;
+    public bool isMoving;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        rb.velocity = Vector3.zero;
+        isMoving = false;
     }
 
     void Update()
     {
-        while(rb.velocity.magnitude!=0)
+        if(rb.velocity.magnitude>0.4f)
         {
             this.GetComponent<CueStrike>().enabled = false;
-            Debug.Log("Ball is moving you can't strike");
+            isMoving = true;
+           // Debug.Log("Ball is moving you can't strike n/ " + rb.velocity.magnitude);
         }
-        this.GetComponent<CueStrike>().enabled = true;
-        Debug.Log("Strike enabled");
+        else
+        {
+            this.GetComponent<CueStrike>().enabled = true;
+            isMoving = false;
+            //Debug.Log("Strike enabled: " + rb.velocity.magnitude);
+        }
+
     }
 }
