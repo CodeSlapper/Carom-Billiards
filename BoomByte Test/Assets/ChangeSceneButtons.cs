@@ -10,6 +10,7 @@ public class ChangeSceneButtons : MonoBehaviour
    {
         if(this.gameObject.tag == "ToGameBtn")
         {
+            ResetStats();
             SceneManager.LoadScene(1);
         }
         if(this.gameObject.tag == "ToMM")
@@ -17,4 +18,10 @@ public class ChangeSceneButtons : MonoBehaviour
             SceneManager.LoadScene(0);
         }
    }
+    void ResetStats()
+    {
+        StaticVariables.totalScore = 0;
+        StaticVariables.totalAttempts = 0;
+        StaticVariables.totalTime = 0;
+    }
 }

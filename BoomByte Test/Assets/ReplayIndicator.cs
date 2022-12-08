@@ -10,7 +10,7 @@ public class ReplayIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        replayUI.text = "Press R for replay (off)";
+        replayUI.text = "Press R (Replay off)";
     }
 
     // Update is called once per frame
@@ -18,11 +18,11 @@ public class ReplayIndicator : MonoBehaviour
     {
         if(replayRef.replayOn)
         {
-            replayUI.text = "Press R for replay (on)";
+            replayUI.text = "Press R to remove replay  (Replay on)";
         }
         else
         {
-            replayUI.text = "Press R for replay (off)";
+            replayUI.text = "Press R (Replay off)";
         }
     }
 }

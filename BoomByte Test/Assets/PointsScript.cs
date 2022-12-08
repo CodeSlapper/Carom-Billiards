@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PointsScript : MonoBehaviour
 {
+    public MoveReplay replayRef;
     Rigidbody rb;
     List<GameObject> collisionHistory = new List<GameObject>();
     //getting a refernce of the boolean isMoving
@@ -23,9 +24,12 @@ public class PointsScript : MonoBehaviour
             {
                 if (checkForBalls(collisionHistory))
                 {
-                    StaticVariables.totalScore++;
-                    Debug.Log("You scored!");
-                    collisionHistory.Clear();
+                    if (!replayRef.replayOn)
+                    {
+                        StaticVariables.totalScore++;
+                        Debug.Log("You scored!");
+                        collisionHistory.Clear();
+                    }
                 }
                 else
                 {

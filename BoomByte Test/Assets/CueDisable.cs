@@ -19,7 +19,7 @@ public class CueDisable : MonoBehaviour
         {
             this.GetComponent<CueStrike>().enabled = false;
             isMoving = true;
-           // Debug.Log("Ball is moving you can't strike n/ " + rb.velocity.magnitude);
+           //Debug.Log("Ball is moving you can't strike n/ " + rb.velocity.magnitude);
         }
         else
         {

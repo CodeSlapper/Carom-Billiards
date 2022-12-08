@@ -8,7 +8,7 @@ public class MoveReplay : MonoBehaviour
     private int currentReplayIndex;
     public bool replayOn;
     private Rigidbody rb;
-    private List<MoveReplayRecord> moveRecorded = new List<MoveReplayRecord> ();
+    private List<MoveReplayRecord> moveRecorded = new List<MoveReplayRecord>();
 
     void Start()
     {
@@ -21,17 +21,24 @@ public class MoveReplay : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            replayOn = !replayOn;
+            if (rb.velocity.magnitude < 0.4f)
+            {
+                replayOn = !replayOn;
 
-            if(replayOn)
-            {
-                SetTransform(0);
-                rb.isKinematic = true;
-            }
-            else
-            {
-                SetTransform(moveRecorded.Count - 1);
-                rb.isKinematic = false;
+                if (replayOn)
+                {
+                    SetTransform(0);
+                    rb.isKinematic = true;
+                }
+                else
+                {
+                    if (moveRecorded.Count > 0)
+                    {
+                        SetTransform(moveRecorded.Count - 1);
+                        
+                    }
+                    rb.isKinematic = false;
+                }
             }
         }
     }
@@ -54,8 +61,8 @@ public class MoveReplay : MonoBehaviour
             {
                 SetTransform(nextIndex);
             }
-
         }
+        
     }
     //getting index of frames
     private void SetTransform(int index)
@@ -65,5 +72,9 @@ public class MoveReplay : MonoBehaviour
         //set position of object to that of stored record
         transform.position = MoveReplayRecord.position;
         transform.rotation = MoveReplayRecord.rotation;
+    }
+    public void MoveReset()
+    {
+        moveRecorded.Clear();
     }
 }
