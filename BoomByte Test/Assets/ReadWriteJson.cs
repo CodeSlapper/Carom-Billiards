@@ -14,7 +14,7 @@ public class ReadWriteJson : MonoBehaviour
         playerData.timeData = StaticVariables.totalTime;
 
         string json = JsonUtility.ToJson(playerData, true);
-        File.WriteAllText(Application.dataPath+ "/PlayerDataFile",json);
+        File.WriteAllText(Application.dataPath+ "/PlayerDataFile.json",json);
    }
 
     public void LoadFromJson()

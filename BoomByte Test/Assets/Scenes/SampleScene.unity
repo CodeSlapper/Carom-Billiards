@@ -261,7 +261,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76299173}
-  m_LocalRotation: {x: 0.23343568, y: 0.000000008365503, z: -0.0000000020082913, w: 0.97237223}
+  m_LocalRotation: {x: 0.23343568, y: -0.000000008365505, z: 0.0000000020082918, w: 0.97237223}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1464,6 +1464,7 @@ MonoBehaviour:
   scoreText: {fileID: 276808602}
   attemptsText: {fileID: 292715972}
   timerUI: {fileID: 1684000440}
+  timeMoveRef: {fileID: 1867656789}
 --- !u!114 &1364192799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fd482c919a41645a381f53af417922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replayRef: {fileID: 1867656789}
   replayUI: {fileID: 1858323460}
 --- !u!1 &1433840621
 GameObject:
@@ -2640,7 +2642,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &1910079183
 MonoBehaviour:
@@ -2887,7 +2889,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &2095660042
 MonoBehaviour:
