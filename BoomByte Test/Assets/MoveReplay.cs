@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class MoveReplay : MonoBehaviour
 {
+    GameObject cueBallref;
     private int currentReplayIndex;
     public bool replayOn;
     private Rigidbody rb;
     private List<MoveReplayRecord> moveRecorded = new List<MoveReplayRecord> ();
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cueBallref = GameObject.Find("CueBall");
     }
 
     // making the RB kinematic to disable collisions in replay
@@ -33,17 +35,21 @@ public class MoveReplay : MonoBehaviour
             }
         }
     }
-    //recording every frame even in replay, if statement prevents that
+    //if replay is off save frame while the cue strike is disabled which means the balls is moving
     void FixedUpdate()
     {
         if (replayOn == false)
         {
-            moveRecorded.Add(new MoveReplayRecord { position = transform.position, rotation = transform.rotation });
+            
+            if (!cueBallref.GetComponent<CueStrike>().isActiveAndEnabled)
+            {
+                moveRecorded.Add(new MoveReplayRecord { position = transform.position, rotation = transform.rotation });
+                Debug.Log("SAVING FRAMES");
+            }
         }
         else
         {
             int nextIndex = currentReplayIndex + 1;
-
             if (nextIndex < moveRecorded.Count)
             {
                 SetTransform(nextIndex);
@@ -56,7 +62,6 @@ public class MoveReplay : MonoBehaviour
     {
         currentReplayIndex = index;
         MoveReplayRecord MoveReplayRecord = moveRecorded[index];
-
         //set position of object to that of stored record
         transform.position = MoveReplayRecord.position;
         transform.rotation = MoveReplayRecord.rotation;
