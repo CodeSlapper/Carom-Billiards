@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class ScoreUIScript : MonoBehaviour
 {
-    public PointsScript pointsRef;
-    public CueStrike strikeRef;
-
     public Text scoreText;
     public Text attemptsText;
     public Text timerUI;

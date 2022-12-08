@@ -18,12 +18,12 @@ public class CueStrike : MonoBehaviour
     {
         /*while holding down count the seconds, 
          when released add force to the ball equal to the time and a multiplier */
-        if (Input.GetKey("v"))
+        if (Input.GetKey(KeyCode.Space))
         {
             timer += Time.deltaTime;
 
         }
-        if(Input.GetKeyUp("v"))
+        if(Input.GetKeyUp(KeyCode.Space))
         {
             Strike(rg);
         }
