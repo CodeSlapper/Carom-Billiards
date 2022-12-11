@@ -71,8 +71,10 @@ public class PointsScript : MonoBehaviour
         }
         if(redCheck && yellowCheck)
         {
+            pCollisionHistory.Clear();
             return true;
         }
+        pCollisionHistory.Clear();
         return false;
     }
 }

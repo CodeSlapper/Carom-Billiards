@@ -51,7 +51,6 @@ public class MoveReplay : MonoBehaviour
             if (!cueBallref.GetComponent<CueStrike>().isActiveAndEnabled)
             {
                 moveRecorded.Add(new MoveReplayRecord { position = transform.position, rotation = transform.rotation });
-                Debug.Log("SAVING FRAMES");
             }
         }
         else
